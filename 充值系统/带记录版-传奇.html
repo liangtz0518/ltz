@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>游戏充值系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 20px;
+            background-image: url('传奇.jpg'); /* 替换为您的背景图片路径 */
+            background-size: cover;
+            background-position: center;
+            border: 2px solid #999999;
+            border-radius: 13px;
+            position: relative;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333; /* 默认颜色 */
+            font-size: 24px; /* 默认字体大小 */
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* 默认颜色 */
+            font-size: 16px; /* 默认字体大小 */
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 29%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            color: #333; /* 默认颜色 */
+            font-size: 14px; /* 默认字体大小 */
+        }
+
+        select {
+            width: 31%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            color: #333; /* 默认颜色 */
+            font-size: 14px; /* 默认字体大小 */
+        }
+
+        .button {
+            display: block;
+            width: 16%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+            top: 10px;
+            left: 210px;
+            color: white; /* 默认颜色 */
+            font-size: 16px; /* 默认字体大小 */
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 39% auto;
+            padding: 9px;
+            width: 240px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal-content img {
+            width: 100%;
+        }
+
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            position: absolute;
+            bottom: 10px; /* 放置在左下角 */
+            left: 10px; /* 放置在左下角 */
+        }
+
+        /* 新增样式 */
+        .fan-group-text {
+            font-weight: bold;
+            font-size: 36px; /* 预定义字体大小 */
+            font-family: Arial, sans-serif; /* 可以修改为你想要的字体 */
+            color: red; /* 可以修改为你想要的颜色 */
+        }
+
+        #newWindow {
+            border: 2px solid #999999;
+            border-radius: 13px;
+            margin-top: 50px;
+            padding: 10px;
+            display: none;
+            position: absolute;
+            width: 500px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            overflow-y: scroll;
+            max-height: 150px; /* 最大高度，超出部分可滚动 */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>道具发放系统</h2>
+
+        <form id="rechargeForm">
+            <div class="form-group">
+                <label for="itemType" style="color: #333; font-size: 16px;">选择道具类型</label>
+                <select id="itemType" name="itemType" style="color: #333; font-size: 14px;">
+                    <option value="所有道具">所有道具</option>
+                    <option value="豪华聊天框礼包">豪华聊天框礼包</option>
+                    <option value="进阶丹随机礼包*999">进阶丹随机礼包*999</option>
+                    <option value="顶级头像框">顶级头像框</option>
+                    <option value="宝石随机礼包*99">宝石随机礼包*99</option>
+                    <option value="丹药礼包*99">丹药礼包*99</option>
+                    <option value="6480灵玉卡">6480灵玉卡</option>
+                    <option value="88888元宝">88888元宝</option>
+                    <option value="8888888金币">8888888金币</option>
+                    <option value="背包扩展250格">背包扩展250格</option>
+                    <option value="5阶五星全套">5阶五星全套</option>
+                    <option value="赤月项链">赤月项链</option>
+                    <option value="赤月灵坠">赤月灵坠</option>
+                    <option value="仙缘石·粉">仙缘石·粉</option>
+                    <option value="仙缘石·金">仙缘石·金</option>
+                    <option value="3000灵玉卡">3000灵玉卡</option>
+                    <option value="充值券">充值券</option>
+                    <option value="VIP经验">VIP经验</option>
+                    <!-- 其他选项 -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="characterName" style="color: #333; font-size: 16px;">输入角色名</label>
+                <input type="text" id="characterName" name="characterName" required style="color: #333; font-size: 14px;">
+            </div>
+
+            <div class="form-group">
+                <label for="paymentMethod" style="color: #333; font-size: 16px;">发送方式</label>
+                <select id="paymentMethod" name="paymentMethod" style="color: #333; font-size: 14px;">
+                    <option value="creditCard">邮箱</option>
+                    <option value="paypal">代金券</option>
+                </select>
+            </div>
+
+            <input type="button" value="发送" class="button" onclick="showLoader()">
+        </form>
+
+        <!-- 小圆点按钮 -->
+        <div class="dot" onclick="showFanGroupModal()"></div>
+
+        <div class="modal" id="modal">
+            <div class="modal-content" id="modalText">
+                <div class="loader"></div>
+            </div>
+        </div>
+
+        <div id="newWindow"></div>
+    </div>
+
+    <script>
+        // 获取充值按钮元素
+        const form = document.getElementById("rechargeForm");
+        const modal = document.getElementById("modal");
+        const modalText = document.getElementById("modalText");
+        const newWindow = document.getElementById("newWindow");
+
+        function showLoader() {
+            // 显示加载动画
+            modal.style.display = "block";
+            modalText.innerHTML = '<div class="loader"></div>';
+            // 模拟加载，这里可以替换为实际的加载逻辑
+            setTimeout(showSuccessMessage, 2000);
+        }
+
+        function showSuccessMessage() {
+            // 获取选择的道具类型
+            const itemType = document.getElementById("itemType").value;
+            // 设置模态框文本
+            const characterName = document.getElementById("characterName").value;
+            const successMessage = characterName + "---发放 " + itemType + " 成功";
+            modalText.textContent = successMessage;
+            // 在新窗口显示成功消息
+            const newMessage = document.createElement("div");
+            newMessage.textContent = successMessage;
+            newWindow.insertBefore(newMessage, newWindow.firstChild); // 插入到顶部
+            newWindow.style.display = "block"; // 显示新窗口
+        }
+
+        function showFanGroupModal() {
+            // 显示粉丝群模态框
+            modal.style.display = "block";
+            modalText.innerHTML = '<div class="fan-group-text">粉丝群 拿</div>';
+        }
+
+        // 添加点击模态框外的区域以关闭模态框
+        window.addEventListener("click", function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
