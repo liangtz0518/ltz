@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>内部按钮聚合</title> 
+    <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1">
+    <link rel="shortcut icon" href="img/icon.png">
+    <link rel="apple-touch-icon" href="img/icon.png">
+    <link rel="stylesheet" href="./files/font.css">
+    <link rel="stylesheet" href="./files/style.css">
+    <style>
+
+        @media screen and (min-width: 961px){
+            .icp{
+                position: absolute;
+                z-index: 2333;
+                text-align: center;
+                top: calc(100% - 20px);
+                left: calc(100% - 125px);
+                font-size: 12px;
+            }
+        }
+
+        @media screen and (max-width: 960px) and (min-width: 601px){
+            .icp{
+                position: absolute;
+                z-index: 2333;
+                text-align: center;
+                top: calc(100% - 20px);
+                left: calc(50% - 50px);
+                font-size: 12px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 顶部页面 -->
+    <section class="top-page" data-state="start">
+        <!-- 顶部页面环 -->
+        <section class="top-page__ring">
+            <div class="wrap" style="transform: scale(1.09385);">
+                <div class="inner">
+                    <!-- 这里放置了一些元素，具体用途未知 -->
+                    <div></div>
+					  <div></div>
+					    <div></div>
+					      <div></div>
+				            <div></div>
+				              <div></div>
+                    <div></div>
+					   <div></div>
+					      <div></div>
+						     <div></div>
+							   <div></div>
+							     <div></div>
+                    <div></div>
+					  <div></div>
+					    <div></div>
+						  <div></div>
+						    <div></div>
+							  <div></div>
+                    <div></div>
+					  <div></div>
+					    <div></div>
+						  <div></div>
+						    <div></div>
+							  <div></div>
+                </div>
+            </div>
+        </section>
+        <!-- 主要插图 -->
+        <section class="top-page__main-illust"></section>
+        <!-- 框架 -->
+        <section class="top-page__frame">
+            <section><div></div><div></div><div></div></section>
+            <section><div></div><div></div><div></div></section>
+            <section><div></div><div></div><div></div></section>
+            <section><div></div><div></div><div></div></section>
+        </section>
+        <!-- Logo -->
+        <section class="top-page__logo">
+            <img src="./files/logo.png" alt="">
+        </section>
+        <!-- 全局导航 -->
+        <section class="top-page__global-nav">
+            <nav class="nav-box">
+                <section>
+                    <!-- 按钮组1 -->
+                    <a id="btn-pink" href="http://www.baidu.com" target="_blank">按钮1</a>
+                    <a id="btn-pink" href="http://www.baidu.com" target="_blank">按钮2</a>
+                </section>
+                <section>
+                    <!-- 按钮组2 -->
+                    <a id="btn-pink" href="http://www.baidu.com" target="_blank">按钮3</a>
+                    <a id="btn-pink" href="http://www.baidu.com" target="_blank">按钮4</a>
+                </section>
+            </nav>
+            <div class="message"><h3>内部聚合</h3></div>
+        </section>
+    </section>
+
+</body>
+</html>
